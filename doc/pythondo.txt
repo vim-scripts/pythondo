@@ -1,0 +1,32 @@
+*pythondo.txt* 
+
+Python Do                                           *python-do* *pythondo*
+
+Usage:
+  This file should reside in the plugin directory and be automatically sourced.
+
+  This plugin adds a command ":Pythondo", which is rather like ":perldo" or
+":rubydo".
+
+You may use the command:
+
+  :[range]Pythondo {cmd}
+  :[range]Pyd {cmd}
+          Execute Python command {cmd} for each line in the
+           [range], with variable "s" being set to the text of each line in
+           turn, and variable "n" being the corresponding line number.  
+           Setting variable "s" will change the text, but note that it 
+           is not possible to add or delete lines using this command.
+           The default for [range] is the whole file: "1,$".
+           Setting variable "n" will set the text to line of number n, not
+           the current line. It's better not to set variable "n".
+  
+
+Here are some things you can try: >
+  :Pythondo s = str(n) + ' ' + s  # Add line number to each line
+  :py import time
+  :.Pythondo s = time.ctime()
+
+
+
+Copyright (c) 2010 " YinLubin <yinlubin@gmail.com>  Version : 0.1
